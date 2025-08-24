@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<!-- saved from url=(0152)https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/11c579652a4efe5730c61a171697ab41/6fc76b87-1e97-47b1-b569-75334e233091/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Therapist Dashboard - Mental Health Outcomes</title>
+    <link rel="stylesheet" href="./Therapist Dashboard - Mental Health Outcomes_files/style.css">
+    <script src="./Therapist Dashboard - Mental Health Outcomes_files/chart.js"></script>
+</head>
+<body data-new-gr-c-s-check-loaded="14.1250.0" data-gr-ext-installed="">
+    <div class="dashboard">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="container">
+                <h1>Mental Health Therapist Dashboard</h1>
+                <div class="header-controls">
+                    <select class="form-control time-filter" id="timeFilter">
+                        <option value="1">Last 1 Month</option>
+                        <option value="3" selected="">Last 3 Months</option>
+                        <option value="6">Last 6 Months</option>
+                        <option value="12">Last Year</option>
+                    </select>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="dashboard-nav">
+            <div class="container">
+                <div class="nav-tabs">
+                    <button class="nav-tab active" data-tab="overview">Overview</button>
+                    <button class="nav-tab" data-tab="patients">Patients</button>
+                    <button class="nav-tab" data-tab="interventions">Interventions</button>
+                    <button class="nav-tab" data-tab="progress">Progress</button>
+                    <button class="nav-tab" data-tab="outcomes">Outcomes</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Overview Tab -->
+            <section class="tab-content active" id="overview-tab">
+                <div class="container">
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <h3>Total Patients</h3>
+                            <div class="metric-value">83</div>
+                            <div class="metric-change positive">+12 this month</div>
+                        </div>
+                        <div class="metric-card">
+                            <h3>Average Improvement</h3>
+                            <div class="metric-value">67%</div>
+                            <div class="metric-change positive">+5% vs last period</div>
+                        </div>
+                        <div class="metric-card">
+                            <h3>Success Rate</h3>
+                            <div class="metric-value">81%</div>
+                            <div class="metric-change positive">+3% vs last period</div>
+                        </div>
+                        <div class="metric-card">
+                            <h3>Avg Sessions</h3>
+                            <div class="metric-value">15</div>
+                            <div class="metric-change neutral">No change</div>
+                        </div>
+                    </div>
+
+                    <div class="charts-grid">
+                        <div class="chart-container">
+                            <div class="card">
+                                <div class="card__header">
+                                    <h3>Recovery Stage Distribution</h3>
+                                </div>
+                                <div class="card__body">
+                                    <div class="chart-wrapper" style="position: relative; height: 300px;">
+                                        <canvas id="recoveryStageChart" style="display: block; box-sizing: border-box; height: 300px; width: 578px;" width="1042" height="539"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="chart-container">
+                            <div class="card">
+                                <div class="card__header">
+                                    <h3>Therapy Type Effectiveness</h3>
+                                </div>
+                                <div class="card__body">
+                                    <div class="chart-wrapper" style="position: relative; height: 300px;">
+                                        <canvas id="therapyEffectivenessChart" style="display: block; box-sizing: border-box; height: 300px; width: 578px;" width="1042" height="539"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Patients Tab -->
+            <section class="tab-content" id="patients-tab">
+                <div class="container">
+                    <div class="patients-grid" id="patientsGrid">
+                        <!-- Patient cards will be populated by JavaScript -->
+                    <div class="patient-card" data-patient-id="1">
+        <div class="patient-header">
+            <div>
+                <h4 class="patient-name">Patient A</h4>
+                <div class="patient-info">34 years, Female</div>
+                <div class="patient-info">Depression - CBT</div>
+            </div>
+            <div class="patient-stage">Rebuilding</div>
+        </div>
+        
+        <div class="patient-metrics">
+            <div class="patient-metric">
+                <div class="patient-metric-label">PHQ-9</div>
+                <div class="patient-metric-value improvement-positive">8</div>
+            </div>
+            <div class="patient-metric">
+                <div class="patient-metric-label">GAD-7</div>
+                <div class="patient-metric-value improvement-positive">6</div>
+            </div>
+        </div>
+        
+        <div class="progress-bar-container">
+            <div class="progress-bar-label">
+                <span>Engagement</span>
+                <span>85%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-bar-fill" style="width: 85%"></div>
+            </div>
+        </div>
+    </div><div class="patient-card" data-patient-id="2">
+        <div class="patient-header">
+            <div>
+                <h4 class="patient-name">Patient B</h4>
+                <div class="patient-info">28 years, Male</div>
+                <div class="patient-info">Anxiety - DBT</div>
+            </div>
+            <div class="patient-stage">Stabilization</div>
+        </div>
+        
+        <div class="patient-metrics">
+            <div class="patient-metric">
+                <div class="patient-metric-label">PHQ-9</div>
+                <div class="patient-metric-value improvement-positive">10</div>
+            </div>
+            <div class="patient-metric">
+                <div class="patient-metric-label">GAD-7</div>
+                <div class="patient-metric-value improvement-positive">12</div>
+            </div>
+        </div>
+        
+        <div class="progress-bar-container">
+            <div class="progress-bar-label">
+                <span>Engagement</span>
+                <span>78%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-bar-fill" style="width: 78%"></div>
+            </div>
+        </div>
+    </div><div class="patient-card" data-patient-id="3">
+        <div class="patient-header">
+            <div>
+                <h4 class="patient-name">Patient C</h4>
+                <div class="patient-info">42 years, Female</div>
+                <div class="patient-info">PTSD - EMDR</div>
+            </div>
+            <div class="patient-stage">Rebuilding</div>
+        </div>
+        
+        <div class="patient-metrics">
+            <div class="patient-metric">
+                <div class="patient-metric-label">PHQ-9</div>
+                <div class="patient-metric-value improvement-positive">7</div>
+            </div>
+            <div class="patient-metric">
+                <div class="patient-metric-label">GAD-7</div>
+                <div class="patient-metric-value improvement-positive">8</div>
+            </div>
+        </div>
+        
+        <div class="progress-bar-container">
+            <div class="progress-bar-label">
+                <span>Engagement</span>
+                <span>92%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-bar-fill" style="width: 92%"></div>
+            </div>
+        </div>
+    </div><div class="patient-card" data-patient-id="4">
+        <div class="patient-header">
+            <div>
+                <h4 class="patient-name">Patient D</h4>
+                <div class="patient-info">19 years, Non-binary</div>
+                <div class="patient-info">Depression - ACT</div>
+            </div>
+            <div class="patient-stage">Stabilization</div>
+        </div>
+        
+        <div class="patient-metrics">
+            <div class="patient-metric">
+                <div class="patient-metric-label">PHQ-9</div>
+                <div class="patient-metric-value improvement-positive">15</div>
+            </div>
+            <div class="patient-metric">
+                <div class="patient-metric-label">GAD-7</div>
+                <div class="patient-metric-value improvement-positive">9</div>
+            </div>
+        </div>
+        
+        <div class="progress-bar-container">
+            <div class="progress-bar-label">
+                <span>Engagement</span>
+                <span>65%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-bar-fill" style="width: 65%"></div>
+            </div>
+        </div>
+    </div></div>
+                </div>
+            </section>
+
+            <!-- Interventions Tab -->
+            <section class="tab-content" id="interventions-tab">
+                <div class="container">
+                    <div class="interventions-layout">
+                        <div class="card">
+                            <div class="card__header">
+                                <h3>Therapeutic Interventions Comparison</h3>
+                            </div>
+                            <div class="card__body">
+                                <div class="chart-wrapper" style="position: relative; height: 400px;">
+                                    <canvas id="interventionsChart" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" height="0" width="0"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card__header">
+                                <h3>Session Frequency Impact</h3>
+                            </div>
+                            <div class="card__body">
+                                <div class="chart-wrapper" style="position: relative; height: 300px;">
+                                    <canvas id="sessionFrequencyChart" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" height="0" width="0"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Progress Tab -->
+            <section class="tab-content" id="progress-tab">
+                <div class="container">
+                    <div class="progress-controls">
+                        <select class="form-control" id="patientSelector">
+                            <option value="">Select Patient</option>
+                        <option value="1">Patient A (Depression)</option><option value="2">Patient B (Anxiety)</option><option value="3">Patient C (PTSD)</option><option value="4">Patient D (Depression)</option></select>
+                    </div>
+                    
+                    <div class="progress-layout">
+                        <div class="card">
+                            <div class="card__header">
+                                <h3>Patient Progress Over Time</h3>
+                            </div>
+                            <div class="card__body">
+                                <div class="chart-wrapper" style="position: relative; height: 400px;">
+                                    <canvas id="progressChart" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" height="0" width="0"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Outcomes Tab -->
+            <section class="tab-content" id="outcomes-tab">
+                <div class="container">
+                    <div class="outcomes-grid">
+                        <div class="card">
+                            <div class="card__header">
+                                <h3>Assessment Score Improvements</h3>
+                            </div>
+                            <div class="card__body">
+                                <div class="chart-wrapper" style="position: relative; height: 350px;">
+                                    <canvas id="outcomesChart" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" height="0" width="0"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="outcomes-measures">
+                            <div class="card">
+                                <div class="card__header">
+                                    <h3>Outcome Measures Guide</h3>
+                                </div>
+                                <div class="card__body">
+                                    <div class="measures-list" id="measuresList">
+                                        <!-- Measures will be populated by JavaScript -->
+                                    <div class="measure-item">
+            <div class="measure-name">PHQ-9</div>
+            <div class="measure-description">Depression severity</div>
+            <div class="measure-scale">Scale: 0-27</div>
+        </div><div class="measure-item">
+            <div class="measure-name">GAD-7</div>
+            <div class="measure-description">Anxiety severity</div>
+            <div class="measure-scale">Scale: 0-21</div>
+        </div><div class="measure-item">
+            <div class="measure-name">Engagement Score</div>
+            <div class="measure-description">Patient treatment engagement</div>
+            <div class="measure-scale">Scale: 0-100</div>
+        </div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Modal for Patient Details -->
+        <div class="modal hidden" id="patientModal">
+            <div class="modal-overlay">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 id="modalPatientName">Patient Details</h3>
+                        <button class="modal-close" id="modalClose">×</button>
+                    </div>
+                    <div class="modal-body" id="modalBody">
+                        <!-- Patient details will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./Therapist Dashboard - Mental Health Outcomes_files/app.js"></script>
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>
